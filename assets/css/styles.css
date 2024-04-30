@@ -1,0 +1,13 @@
+.left-bar {
+  left: 0;
+  top: 0;
+  position: fixed;
+  min-width: 18rem;
+  border-right: 1px solid;
+  height: 100dvh;
+}
+
+.right-bar {
+  margin-left: 18rem;
+  position: absolute;
+}
