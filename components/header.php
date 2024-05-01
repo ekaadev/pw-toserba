@@ -18,7 +18,7 @@
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
-  <link id="pagestyle" href="assets/css/material-dashboard.min.css" rel="stylesheet" />
+  <link id="pagestyle" href="../assets/css/material-dashboard.min.css" rel="stylesheet" />
 </head>
 
 <!-- BODY -->
@@ -33,6 +33,7 @@
     <!-- NAVBAR -->
     <!-- MEMANGGIL KOMPONEN NAVIGASI BAR KE DALAM HEADER -->
     <?php include('navbar.php'); ?>
-
+    
+    <div class="container-fluid py-4">
 
     
