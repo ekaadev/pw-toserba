@@ -8,6 +8,7 @@
   <div class="row min-vh-80 h-100">
     <div class="col-12">
       <span class="">Purchase</span>
+      <div class="form"></div>
     </div>
   </div>
 
