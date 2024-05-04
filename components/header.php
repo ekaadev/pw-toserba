@@ -22,7 +22,7 @@
 </head>
 
 <!-- BODY -->
-<body class="g-sidenav-show  bg-gray-200">
+<body class="g-sidenav-show  bg-gray-300">
 
   <!-- SIDEBAR -->
   <!-- MEMANGGIIL KOMPONEN SIDEBAR KE DALAM HEADER -->
