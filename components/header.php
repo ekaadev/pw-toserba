@@ -34,6 +34,6 @@
     <!-- MEMANGGIL KOMPONEN NAVIGASI BAR KE DALAM HEADER -->
     <?php include('navbar.php'); ?>
     
-    <div class="container-fluid py-4">
+    <div class="container-fluid py-4 px-5">
 
     
