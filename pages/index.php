@@ -14,6 +14,6 @@
 <?php
 
   // MEMANGGIL FOOTER
-  include('../components/footer.php'); 
+  include('../components/footerScript.php'); 
   
 ?>
