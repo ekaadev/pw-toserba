@@ -10,39 +10,40 @@
         <p class="fs-2 mb-4">Purchase</p>
         
         <!-- input barang -->
-        <div class="row d-flex flex-column rounded-2 bg-white shadow-sm border fs-5">
-          <div class="border-bottom py-3">
-            Input barang
-          </div>
-          <div class="sel-input col-12 d-flex gap-1 pt-3 pb-5 border-bottom">
+        <form action="">
 
-            <!-- baris inputan  -->
-            <div class="col-4">
-              <div>
-                <label for="idBarnag">ID Barang</label>
-              </div>
-              <input type="text" name="idBarang" class="form-control mt-2">
+          <div class="row d-flex flex-column rounded-2 bg-white shadow-sm border fs-5">
+            <div class="border-bottom py-3">
+              Input barang
             </div>
-            <div class="col-4">
-              <div>
-                <label for="kuantitasBarang">Kuantitas</label>
+            <div class="sel-input col pt-3 pb-5 border-bottom">
+              <div class="row">
+              
+                <!-- baris inputan  -->
+                <div class="col-md-4">
+                  <label for="idBarnag">ID Barang</label>
+                  <input type="text" name="idBarang" class="form-control">
+                </div>
+                <div class="col-md-4">
+                  <label for="kuantitasBarang">Kuantitas</label>
+                  <input type="text" name="kuantitasBarang" class="form-control">
+                </div>
+                <div class="col-md-4">
+                  <label for="jumlahBarang">Jumlah Barang</label>
+                  <input type="text" name="jumlahBarang" class="form-control">
+                </div>
+                
               </div>
-              <input type="text" name="kuantitasBarang" class="form-control mt-2">
-            </div>
-            <div class="col-4">
-              <div>
-                <label for="jumlahBarang">Jumlah Barang</label>
-              </div>
-              <input type="text" name="jumlahBarang" class="form-control mt-2">
+
             </div>
 
+            <!-- submit -->
+            <div class="py-2 d-flex justify-content-end">
+              <input type="button" value="Submit" class="btn btn-primary">
+            </div>
           </div>
 
-          <!-- submit -->
-          <div class="py-2 d-flex justify-content-end ms-2">
-            <input type="button" value="Submit" class="btn btn-primary">
-          </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
