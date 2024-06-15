@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,14 +12,17 @@
   <div id="db-wrapper">
     <!--  side bar -->
     <?php include('../components/side.php'); ?>
+
     <div id="page-content">
       <!-- navbar -->
       <?php include('../components/nav.php'); ?>
 
 
-      <div class="row min-vh-80 h-100 px-5 py-5">
-        <div class="col-12">
-          <p>Dashboard</p>
+      <div class="container-fluid">
+        <div class="row min-vh-80 h-100 px-5 py-5">
+          <div class="col-12">
+            <p>Dashboard</p>
+          </div>
         </div>
       </div>
 
