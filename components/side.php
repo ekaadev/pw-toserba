@@ -7,11 +7,13 @@
         </a>
         <!-- Navbar nav -->
         <ul class="navbar-nav flex-column" id="sideNavbar">
+
             <li class="nav-item">
-                <a class="nav-link has-arrow @@if (context.page === 'dashboard') { collapsed }" href="http://localhost:90/pw-toserba/pages/index.php">
+                <a class="nav-link has-arrow @@if (context.page === \'dashboard\') { collapsed }" href="http://localhost:90/pw-toserba/pages/index.php">
                     <i data-feather="home" class="nav-icon icon-xs me-2"></i> Dashboard
                 </a>
             </li>
+            
 
             <!-- Nav item -->
             <li class="nav-item">

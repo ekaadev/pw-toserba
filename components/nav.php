@@ -1,3 +1,10 @@
+<?php 
+  if(isset($_GET['logout'])) {
+    session_destroy();
+    header('Location: ../pages/login.php');
+  }
+?>
+
 <div class="header @@classList">
   <!-- navbar -->
   <nav class="navbar-classic navbar navbar-expand-lg">
@@ -20,30 +27,7 @@
           aria-expanded="false">
           <i class="icon-xs" data-feather="bell"></i>
         </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end"
-          aria-labelledby="dropdownNotification">
-          <div>
-            <div class="border-bottom px-3 pt-2 pb-3 d-flex
-              justify-content-between align-items-center">
-              <p class="mb-0 text-dark fw-medium fs-4">Notifications</p>
-              <a href="#" class="text-muted">
-                <span>
-                  <i class="me-1 icon-xxs" data-feather="settings"></i>
-                </span>
-              </a>
-            </div>
-            <!-- List group -->
-            <ul class="list-group list-group-flush notification-list-scroll">
-              <!-- List group item -->
-              
-            </ul>
-            <div class="border-top px-3 py-2 text-center">
-              <a href="#" class="text-inherit fw-semi-bold">
-                View all Notifications
-              </a>
-            </div>
-          </div>
-        </div>
+        
       </li>
       <!-- List -->
       <li class="dropdown ms-2">
@@ -60,24 +44,21 @@
 
 
             <div class="lh-1 ">
-              <h5 class="mb-1"> John E. Grainger</h5>
-              <a href="#" class="text-inherit fs-6">View my profile</a>
+              <h5 class="mb-1">
+                <?php 
+                  echo $_SESSION['username'];
+                ?>
+              </h5>
             </div>
             <div class=" dropdown-divider mt-3 mb-2"></div>
           </div>
 
           <ul class="list-unstyled">
-
-            <li>
-              <a class="dropdown-item" href="#">
-                <i class="me-2 icon-xxs dropdown-item-icon" data-feather="user"></i>Edit
-                Profile
-              </a>
-            </li>
             <li>
               <a class="dropdown-item" href="@@webRoot/index.html">
-                <i class="me-2 icon-xxs dropdown-item-icon"
-                  data-feather="power"></i>Sign Out
+                <form action="index.php" method="get">
+                  <button class="btn btn-primary w-100" type="submit" name="logout">Log Out</button>
+                </form>
               </a>
             </li>
           </ul>
