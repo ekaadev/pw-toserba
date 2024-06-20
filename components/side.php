@@ -9,7 +9,7 @@
         <ul class="navbar-nav flex-column" id="sideNavbar">
 
             <li class="nav-item">
-                <a class="nav-link has-arrow @@if (context.page === \'dashboard\') { collapsed }" href="http://localhost:90/pw-toserba/pages/index.php">
+                <a class="nav-link has-arrow @@if (context.page === \'dashboard\') { collapsed }" href="http://localhost/pw-toserba/pages/index.php">
                     <i data-feather="home" class="nav-icon icon-xs me-2"></i> Dashboard
                 </a>
             </li>
@@ -22,14 +22,14 @@
 
             <!-- Nav item -->
             <li class="nav-item">
-                <a class="nav-link has-arrow @@if (context.page_group !== 'pages') { collapsed }" href="http://localhost:90/pw-toserba/pages/purchase.php" >
+                <a class="nav-link has-arrow @@if (context.page_group !== 'pages') { collapsed }" href="http://localhost/pw-toserba/pages/purchase.php" >
                     <i data-feather="layers" class="nav-icon icon-xs me-2"></i> Purchase
                 </a>
             </li>
 
             <!-- Nav item -->
             <li class="nav-item">
-                <a class="nav-link has-arrow @@if (context.page_group !== 'authentication') { collapsed }" href="http://localhost:90/pw-toserba/pages/inventory.php" >
+                <a class="nav-link has-arrow @@if (context.page_group !== 'authentication') { collapsed }" href="http://localhost/pw-toserba/pages/inventory.php" >
                     <i data-feather="lock" class="nav-icon icon-xs me-2"></i> Inventory
                 </a>
             </li>
