@@ -23,10 +23,10 @@
             <form action="">
 
               <div class="row d-flex flex-column rounded-2 bg-white shadow-sm border fs-5">
-                <div class="border-bottom py-3">
+                <div class="border-bottom p-5">
                   Input barang
                 </div>
-                <div class="sel-input col pt-3 pb-5 border-bottom">
+                <div class="sel-input col p-5 border-bottom">
                   <div class="row">
                   
                     <!-- baris inputan  -->
@@ -48,7 +48,7 @@
                 </div>
 
                 <!-- submit -->
-                <div class="py-2 d-flex justify-content-end">
+                <div class="py-2 px-5 d-flex justify-content-end">
                   <input type="button" value="Submit" class="btn btn-primary">
                 </div>
               </div>
