@@ -78,7 +78,7 @@ if(isset($_POST['login'])) {
 
                 <!-- Lupa Password dan Link Registrasi,belum dilink kan.. -->
                 <div class="text-center mt-3">
-                    <p class="text-muted">Not registered yet? <a href="http://localhost:90/pw-toserba/pages/registration.php" class="text-decoration-none">Create an account</a></p>
+                    <p class="text-muted">Not registered yet? <a href="http://localhost/pw-toserba/pages/registration.php" class="text-decoration-none">Create an account</a></p>
                 </div>
             </div>
         </div>
