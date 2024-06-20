@@ -12,30 +12,16 @@
         data-feather="menu"
 
         class="nav-icon me-2 icon-xs"></i></a>
-    <div class="ms-lg-3 d-none d-md-none d-lg-block">
-      <!-- Form -->
-      <form class="d-flex align-items-center">
-        <input type="search" class="form-control" placeholder="Search" />
-      </form>
-    </div>
+    
     <!--Navbar nav -->
     <ul class="navbar-nav navbar-right-wrap ms-auto d-flex nav-top-wrap">
-      <li class="dropdown stopevent">
-        <a class="btn btn-light btn-icon rounded-circle indicator
-          indicator-primary text-muted" href="#" role="button"
-          id="dropdownNotification" data-bs-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
-          <i class="icon-xs" data-feather="bell"></i>
-        </a>
-        
-      </li>
+      
       <!-- List -->
       <li class="dropdown ms-2">
         <a class="rounded-circle" href="#" role="button" id="dropdownUser"
           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <div class="avatar avatar-md avatar-indicators avatar-online border">
-            <img alt="avatar" src="@@webRoot/assets/images/avatar/avatar-1.jpg"
-              class="rounded-circle" />
+          <div class="avatar avatar-md avatar-indicators avatar-online">
+            <img alt="avatar" src="../assets/img/user.png"/>
           </div>
         </a>
         <div class="dropdown-menu dropdown-menu-end"
