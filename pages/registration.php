@@ -45,7 +45,7 @@ if (isset($_POST['regis'])) {
         try {
             $regis->setRegis();
 
-            header('Location: login.php');
+            header('Location: registration_succes.php');
         } catch (PDOException $e ){
             echo "Error : " . $e->getMessage(); 
         }
