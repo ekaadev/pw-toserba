@@ -34,6 +34,12 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link has-arrow @@if (context.page_group !== 'authentication') { collapsed }" href="http://localhost/pw-toserba/pages/supplier.php" >
+                    <i data-feather="lock" class="nav-icon icon-xs me-2"></i> Supplier
+                </a>
+            </li>
+
         </ul>
     </div>
 </nav>
