@@ -7,6 +7,11 @@
     header('Location: inventory.php');
   }
 
+  if (isset($_GET['edit'])) {
+    $_SESSION['idEditBarang'] = $_GET['edit'];
+    header('Location: editInventory.php');
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +45,7 @@
             </form>
 
             <!-- ROW TABLE -->
-            <div id="content">
+            <div id="content" class="table-responsive">
               
               <table class="table table-hover">
                 <thead>
@@ -93,7 +98,7 @@
                           echo "<td>$harga_beli</td>";
                           echo "<td>$harga_jual</td>";
                           echo "<td>
-                                  <form action=\"\" method=\"get\">
+                                  <form action=\"inventory.php\" method=\"get\">
                                   <button class=\"btn btn-primary \" type=\"submit\" name=\"edit\" value=\"$id_barang\">Edit</button>
                                   <button class=\"btn btn-danger \" type=\"submit\" name=\"delete\" value=\"$id_barang\">Delete</button>
                                   </form>
@@ -139,7 +144,7 @@
                           echo "<td>$harga_beli</td>";
                           echo "<td>$harga_jual</td>";
                           echo "<td>
-                                  <form action=\"\" method=\"get\">
+                                  <form action=\"inventory.php\" method=\"get\">
                                   <button class=\"btn btn-primary \" type=\"submit\" name=\"edit\" value=\"$id_barang\">Edit</button>
                                   <button class=\"btn btn-danger \" type=\"submit\" name=\"delete\" value=\"$id_barang\">Delete</button>
                                   </form>
