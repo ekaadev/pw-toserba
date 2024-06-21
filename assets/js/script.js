@@ -20,4 +20,4 @@ key.addEventListener('keyup', function() {
     xhr.open('GET', '../controller/src/inventoryAjax.php?key=' + key.value, true);
     xhr.send();
 
-})
+});

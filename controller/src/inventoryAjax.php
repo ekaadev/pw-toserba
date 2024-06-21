@@ -53,7 +53,7 @@ $key = $_GET['key'];
                 echo "<td>$harga_beli</td>";
                 echo "<td>$harga_jual</td>";
                 echo "<td>
-                        <form action=\"\" method=\"get\">
+                        <form action=\"inventory.php\" method=\"get\">
                         <button class=\"btn btn-primary \" type=\"submit\" name=\"edit\" value=\"$id_barang\">Edit</button>
                         <button class=\"btn btn-danger \" type=\"submit\" name=\"delete\" value=\"$id_barang\">Delete</button>
                         </form>
