@@ -13,7 +13,7 @@
   }
 
   if (isset($_GET['delete'])) {
-
+    header('Location: deleteItemInventory.php');
   }
 
 ?>
