@@ -1,5 +1,36 @@
 <?php 
-session_start();
+    require_once __DIR__ . '/../controller/Connection.php';
+
+    session_start();
+
+    $idDelete =  $_SESSION['idBarang'];
+
+    if(isset($_GET['delete'])) {
+        // eksekusi fungsi deleteItem
+
+        try {
+
+            // connect database
+            $conn = Connection::getConnection();
+
+            $sql = "DELETE FROM barang WHERE id_barang = '$idDelete'";
+
+            $conn->exec($sql);
+
+            $conn = null;
+
+            header('Location: inventory.php');
+
+        } catch(PDOException $e) {
+
+            echo "Error : " . $e->getMessage();
+        }
+    }
+
+
+    if(isset($_GET['cancel'])) {
+        header('Location: inventory.php');
+    }
 
 ?>
 
@@ -18,8 +49,10 @@ session_start();
                 <p class="fs-4 mb-3">Are you sure ?</p>
 
                 <div class="d-flex flex-row gap-2 justify-content-end">
-                    <button type="submit" class="btn btn-primary" name="delete">Submit</button>
-                    <button type="submit" class="btn btn-outline-danger" name="cancel">Cancel</button>
+                    <form action="deleteItemInventory.php" method="get">    
+                        <button type="submit" class="btn btn-primary" name="delete">Submit</button>
+                        <button type="submit" class="btn btn-outline-danger" name="cancel">Cancel</button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -13,6 +13,7 @@
   }
 
   if (isset($_GET['delete'])) {
+    $_SESSION['idBarang'] = $_GET['delete'];
     header('Location: deleteItemInventory.php');
   }
 
