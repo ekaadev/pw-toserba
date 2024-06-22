@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../controller/Connection.php';
-require_once __DIR__ . '/../controller/Authentication.php';
+require_once __DIR__ . '/../controller/AuthController.php';
 require_once __DIR__ . '/../utils/Helper.php';
 session_start();
 
@@ -40,19 +40,25 @@ if (isset($_POST['regis'])) {
     if ($statusPassword) {
 
         // jika -> true, set data pribadi user
-        $regis = new Authhentication($idUser, $_POST['nama'],  $_POST['email'], $_POST['alamat'], $_POST['username'], $passwordUser);
+        $regis = new AuthController();
 
         try {
-            $regis->setRegis();
+            $request = [
+                'nama'      => $_POST['nama'],
+                'email'     => $_POST['email'],
+                'alamat'    => $_POST['alamat'],
+                'username'  => $_POST['username'],
+                'password'  => $passwordUser,
+                'id'        => $idUser
+            ];
+
+            $regis->register($request);
 
             header('Location: registration_succes.php');
         } catch (PDOException $e ){
             echo "Error : " . $e->getMessage(); 
         }
     }
-
-
-    
 }
 
 ?>
