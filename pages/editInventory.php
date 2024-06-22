@@ -1,109 +1,69 @@
-<?php 
-    require_once __DIR__ . '/../controller/Connection.php';
-    session_start();
+<?php
+require_once __DIR__ . '/../controller/Connection.php';
+require_once __DIR__ . '/../controller/InventoryController.php';
+session_start();
 
-    $idEdit = $_SESSION['idEditBarang'];
-    $kategori = null;
-    $nama = null;
-    $stok = null;
-    $hargaBeli = null;
-    $hargaJual = null;
+$kategori = null;
+$nama = null;
+$stok = null;
+$hargaBeli = null;
+$hargaJual = null;
 
-    try {
-        
-        $conn = Connection::getConnection();
+$inventory = new InventoryController();
+$item = $inventory->edit();
 
-        $sql = "SELECT id_barang, id_kategori, nama, stok, harga_beli, harga_jual FROM barang WHERE id_barang = '$idEdit' ";
+if (isset($_POST['edit'])) {
+    $request = [
+        'namaBarang'        => $_POST['editNamaBarang'],
+        'stokBarang'        => $_POST['editStokBarang'],
+        'hargaBeliBarang'   => $_POST['editHargaBeliBarang'],
+        'hargaJualBarang'   => $_POST['editHargaJualBarang'],
+    ];
 
-        $result = $conn->query($sql);
-
-        foreach($result as $value) {
-            $kategori = $value['id_kategori'];
-            $nama = $value['nama'];
-            $stok = $value['stok'];
-            $hargaBeli = $value['harga_beli'];
-            $hargaJual = $value['harga_jual'];
-        }
-
-        $conn = null;
-
-
-    } catch (PDOException $e) {
-        echo "Error : " . $e->getMessage();
-    }
-
-    if(isset($_GET['edit'])) {
-        try {
-            $nama = $_GET['editNamaBarang'];
-            $stok =  intval($_GET['editStokBarang']);
-            $hargaBeli = intval($_GET['editHargaBeliBarang']);
-            $hargaJual = intval($_GET['editHargaJualBarang']);
-        
-            $conn = Connection::getConnection();
+    $inventory->update($request);
     
-            $sql = "UPDATE barang 
-                    SET nama = '$nama', stok = $stok, harga_beli = $hargaBeli, harga_jual = $hargaJual
-                    WHERE id_barang = '$idEdit'";
-    
-            $result = $conn->query($sql);
-    
-            $conn = null;
-    
-    
-        } catch (PDOException $e) {
-            echo "Error : " . $e->getMessage();
-        }
-    
-    }
-
-    if(isset($_GET['cancel'])) {
-        header('Location: inventory.php');
-    }
-
-
+    header('Location: inventory.php');
+}
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <?php include('../components/scriptStyle.php') ?>
     <title>Edit</title>
 </head>
+
 <body class="bg-light">
 
     <div class="container py-5">
         <div class="card mx-auto" style="width: 30rem">
             <div class="card-body">
-                <h3>Edit <?php echo $idEdit; ?></h3>
-                <form action="editInventory.php" method="get">
+                <form action="editInventory.php?id=<?= $item['id'] ?>" method="post">
                     <div class="mb-3">
-                        <label for="" class="form-label">ID Barang</label>
-                        <input type="text" class="form-control" name="editIdBarang" disabled value="<?php echo $idEdit; ?>">
-                    </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label">ID Kategori</label>
-                        <input type="text" class="form-control" name="editKategoriBarang" disabled value="<?php echo $kategori; ?>">
+                        <label for="" class="form-label">Kategori</label>
+                        <input type="text" class="form-control" disabled value="<?= $item['nama_kategori']; ?>">
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Nama</label>
-                        <input type="text" class="form-control" name="editNamaBarang" value="<?php echo $nama; ?>">
+                        <input type="text" class="form-control" name="editNamaBarang" value="<?= $item['nama_barang']; ?>">
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Stok</label>
-                        <input type="text" class="form-control" name="editStokBarang" value="<?php echo $stok; ?>">
+                        <input type="text" class="form-control" name="editStokBarang" value="<?= $item['stok']; ?>">
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Harga beli</label>
-                        <input type="text" class="form-control" name="editHargaBeliBarang"  value="<?php echo $hargaBeli; ?>">
+                        <input type="text" class="form-control" name="editHargaBeliBarang" value="<?= $item['harga_beli']; ?>">
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Harga jual</label>
-                        <input type="text" class="form-control" name="editHargaJualBarang"  value="<?php echo $hargaJual; ?>">
+                        <input type="text" class="form-control" name="editHargaJualBarang" value="<?= $item['harga_jual']; ?>">
                     </div>
                     <div class="mb-3 d-flex justify-content-end gap-2">
                         <button type="submit" class="btn btn-primary" name="edit">Submit</button>
-                        <button type="submit" class="btn btn-outline-danger" name="cancel">Cancel</button>
+                        <a href="inventory.php" class="btn btn-outline-danger" name="cancel">Cancel</a>
                     </div>
 
                 </form>
@@ -114,4 +74,5 @@
 
     
 </body>
+
 </html>

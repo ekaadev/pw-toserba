@@ -1,6 +1,11 @@
 <?php
-require_once __DIR__ . '/../controller/Connection.php';
+require_once __DIR__ . '/../controller/AuthController.php';
+
 session_start();
+
+if (isset($_SESSION['username'])) {
+    header('Location: index.php');
+}
 
 $usernameUser = null;
 $passwordUser = null;
@@ -9,53 +14,23 @@ $realPasswordUser = null;
 $roleUser = null;
 
 
-if(isset($_POST['login'])) {
-
-    $usernameUser = $_POST['usernameUser'];
-    $passwordUser = $_POST['passwordUser'];
-
-    try {
-
-        // konek database
-        $conn = Connection::getConnection();
-        
-        // cari username
-        $sql = "SELECT username, pass, roleas FROM karyawan WHERE username = '$usernameUser' ";
-
-        $result = $conn->query($sql);
-
-        // asign real username and password
-        foreach($result as $value) {
-            $realUsernameUser = $value['username'];
-            $realPasswordUser = $value['pass'];
-            $roleUser = $value['roleas'];
-
-        }
-
-    } catch (PDOException $e) {
-        echo "Error:  " . $e->getMessage();
-    }
-
-    // validasi
-    if($usernameUser === $realUsernameUser && $passwordUser === $realPasswordUser) {
-        $_SESSION['username'] = $usernameUser;
-        $_SESSION['role'] = $roleUser;
-        header('Location: index.php');
-    } else {
-        session_destroy();
-        header('Location: login.php');
-    }
-
+if (isset($_POST['login'])) {
+    $auth = new AuthController();
+    $auth->login();
 }
+
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../assets/css/theme.css">
 </head>
+
 <body class="bg-dark">
     <div class="d-flex justify-content-center align-items-center vh-100">
         <div class="card shadow" style="width: 30rem;">
@@ -70,9 +45,9 @@ if(isset($_POST['login'])) {
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="passwordUser"  placeholder="Enter your password" required>
+                        <input type="password" class="form-control" id="password" name="passwordUser" placeholder="Enter your password" required>
                     </div>
-        
+
                     <button class="btn btn-primary w-100" type="submit" name="login">Login</button>
                 </form>
 
@@ -84,4 +59,5 @@ if(isset($_POST['login'])) {
         </div>
     </div>
 </body>
+
 </html>
