@@ -110,12 +110,37 @@ class InventoryController
             $stmt = $this->conn->prepare($sql);
 
             $stmt->bindParam(':id', $id);
+    
 
             $result = $stmt->execute();
 
             return $result;
         } catch(PDOException $e) {
 
+            echo "Error : " . $e->getMessage();
+        }
+    }
+
+    public function keyword() 
+    {
+
+        try {
+            $key = $_GET['key'];
+
+            $sql = "SELECT id_barang, id_kategori, nama, stok, harga_beli, harga_jual FROM barang WHERE nama LIKE '%$key%'";
+    
+            $stmt = $this->conn->prepare($sql);
+    
+            $stmt->execute();
+    
+            $totalData = $stmt->rowCount();
+    
+            $result = $stmt->fetchAll();
+
+            return [$result, $totalData];
+    
+
+        } catch (PDOException $e) {
             echo "Error : " . $e->getMessage();
         }
     }
