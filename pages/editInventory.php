@@ -3,12 +3,6 @@ require_once __DIR__ . '/../controller/Connection.php';
 require_once __DIR__ . '/../controller/InventoryController.php';
 session_start();
 
-$kategori = null;
-$nama = null;
-$stok = null;
-$hargaBeli = null;
-$hargaJual = null;
-
 $inventory = new InventoryController();
 $item = $inventory->edit();
 
