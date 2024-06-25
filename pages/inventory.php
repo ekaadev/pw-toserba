@@ -13,12 +13,15 @@ if (isset($_GET['refresh'])) {
 
 if (isset($_POST['delete'])) {
   $success = $inventory->delete();
-  
+
   if ($success) {
     $_SESSION['success'] = 'Data berhasil dihapus';
   } else {
     $_SESSION['success'] = 'Gagal menghapus data';
   }
+
+  header('Location: inventory.php');
+  exit();
 }
 
 ?>
@@ -58,7 +61,7 @@ if (isset($_POST['delete'])) {
             <form action="inventory.php" method="get">
               <div class="py-5 fs-5 d-flex flex-row gap-2">
                 <input type="text" name="key" id="key" class="form-control form-control-transparent" placeholder="Search">
-                <button type="submit" class="btn btn-secondary" name="add">Add</button>
+                <a href="addInventory.php" class="btn btn-secondary" name="add">Add</a>
                 <button type="submit" class="btn btn-success" name="refresh">Refresh</button>
               </div>
             </form>

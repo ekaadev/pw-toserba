@@ -30,6 +30,43 @@ class InventoryController
         }
     }
 
+    public function add($request) 
+    {
+        try {
+            $id = $request['id'];
+            $kategori = $request['kategori'];
+            $nama = $request['nama'];
+            $stok = $request['stok'];
+            $hargaBeli = $request['hargaBeli'];
+            $hargaJual = $request['hargaJual'];
+
+            $sql = "INSERT INTO barang (id_barang, id_kategori, nama, stok, harga_beli, harga_jual)
+                    VALUES (:id, :kategori, :nama, :stok, :harga_beli, :harga_jual)";
+
+            $stmt = $this->conn->prepare($sql);
+
+            // bind nilai 
+            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':kategori', $kategori);
+            $stmt->bindParam(':nama', $nama);
+            $stmt->bindParam(':stok', $stok);
+            $stmt->bindParam(':harga_beli', $hargaBeli);
+            $stmt->bindParam(':harga_jual', $hargaJual);
+            $stmt->execute();
+
+            if ($stmt->rowCount() > 0) {
+                $_SESSION['success'] = 'Data berhasil disimpan';
+            } else {
+                return false;
+            }
+
+
+        } catch (PDOException $e) {
+            echo "Error : " . $e->getMessage();
+        }
+        
+    }
+
     public function edit()
     {
         if (isset($_GET['id'])) {
