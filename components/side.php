@@ -23,7 +23,7 @@
             <!-- Nav item -->
             <li class="nav-item">
                 <a class="nav-link has-arrow @@if (context.page_group !== 'pages') { collapsed }" href="http://localhost/pw-toserba/pages/purchase.php" >
-                    <i data-feather="shopping-cart" class="nav-icon icon-xs me-2"></i> Purchase
+                    <i data-feather="shopping-cart" class="nav-icon icon-xs me-2"></i> Sales
                 </a>
             </li>
 
@@ -33,6 +33,12 @@
             </li>
 
             <!-- Nav item -->
+            <li class="nav-item">
+                <a class="nav-link has-arrow @@if (context.page_group !== 'authentication') { collapsed }" href="http://localhost/pw-toserba/pages/customer.php" >
+                    <i data-feather="user" class="nav-icon icon-xs me-2"></i> Customer
+                </a>
+            </li>
+
             <li class="nav-item">
                 <a class="nav-link has-arrow @@if (context.page_group !== 'authentication') { collapsed }" href="http://localhost/pw-toserba/pages/inventory.php" >
                     <i data-feather="database" class="nav-icon icon-xs me-2"></i> Inventory
@@ -44,6 +50,7 @@
                     <i data-feather="users" class="nav-icon icon-xs me-2"></i> Supplier
                 </a>
             </li>
+
 
         </ul>
     </div>
