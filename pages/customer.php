@@ -47,7 +47,7 @@ if (isset($_POST['delete'])) {
             <div class="container-fluid">
 
                 <div class="row min-vh-80 h-100 px-5 py-5">
-                    <p class="fs-2 pb-3">Supplier</p>
+                    <p class="fs-2 pb-3">Customer</p>
 
                     <?php if (isset($_SESSION['success'])) : ?>
                         <div class="alert alert-success" role="alert">
