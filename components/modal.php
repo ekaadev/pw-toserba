@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="modal<?= $item['id_barang'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal<?= $item['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -11,8 +11,8 @@
             </div>
             <div class="modal-footer">
                 <div class="d-flex flex-row gap-2 justify-content-end">
-                    <form action="inventory.php" method="post">
-                        <input type="hidden" name="id" value="<?= $item['id_barang']?>">
+                    <form action="" method="post">
+                        <input type="hidden" name="id" value="<?= $item['id']?>">
                         <button type="submit" class="btn btn-primary" name="delete">Submit</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     </form>

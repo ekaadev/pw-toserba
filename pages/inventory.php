@@ -60,7 +60,7 @@ if (isset($_POST['delete'])) {
             <!-- ROW SEARCH AND ADD -->
             <form action="inventory.php" method="get">
               <div class="py-5 fs-5 d-flex flex-row gap-2">
-                <input type="text" name="key" id="key" class="form-control form-control-transparent" placeholder="Search">
+                <input type="text" name="key" id="key" class="form-control form-control-transparent" placeholder="Search" autocomplete="off">
                 <a href="addInventory.php" class="btn btn-secondary" name="add">Add</a>
                 <button type="submit" class="btn btn-success" name="refresh">Refresh</button>
               </div>
@@ -69,7 +69,7 @@ if (isset($_POST['delete'])) {
             <!-- ROW TABLE -->
             <div id="content" class="table-responsive">
 
-              <table class="table table-hover">
+              <table class="table table-hover align-middle">
                 <thead>
                   <th>ID Barang</th>
                   <th>ID Kategori</th>
@@ -82,18 +82,18 @@ if (isset($_POST['delete'])) {
                 <tbody>
                   <?php foreach ($inventories as $item) : ?>
                     <tr>
-                      <td><?= $item['id_barang'] ?></td>
+                      <td><?= $item['id'] ?></td>
                       <td><?= $item['id_kategori'] ?></td>
                       <td><?= $item['nama'] ?></td>
                       <td><?= $item['stok'] ?></td>
                       <td><?= $item['harga_beli'] ?></td>
                       <td><?= $item['harga_jual'] ?></td>
                       <td>
-                        <a href="editInventory.php?id=<?= $item['id_barang'] ?>" class="btn btn-primary">
+                        <a href="editInventory.php?id=<?= $item['id'] ?>" class="btn btn-primary">
                           Edit
                         </a>
 
-                        <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal<?= $item['id_barang'] ?>">
+                        <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal<?= $item['id'] ?>">
                           Hapus
                         </a>
                         <?php include('../components/modal.php') ?>
@@ -114,7 +114,7 @@ if (isset($_POST['delete'])) {
   </div>
 
   <?php include('../components/scripts.php') ?>
-  <script src="../assets/js/script.js"></script>
+  <script src="../assets/js/inventoryScript.js"></script>
 </body>
 
 </html>

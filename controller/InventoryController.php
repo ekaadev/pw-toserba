@@ -16,7 +16,7 @@ class InventoryController
     public function index()
     {
         try {
-            $sql = "SELECT id_barang, id_kategori, nama, stok, harga_beli, harga_jual FROM barang";
+            $sql = "SELECT id_barang as id, id_kategori, nama, stok, harga_beli, harga_jual FROM barang";
 
             $stmt = $this->conn->prepare($sql);
 

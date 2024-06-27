@@ -8,7 +8,7 @@ $inventory = new InventoryController();
 $data = $inventory->keyword();
 ?>
 
-<table class="table table-hover">
+<table class="table table-hover align-middle">
     <thead>
         <th>ID Barang</th>
         <th>ID Kategori</th>
@@ -28,11 +28,11 @@ $data = $inventory->keyword();
                 <td><?= $item['harga_beli'] ?></td>
                 <td><?= $item['harga_jual'] ?></td>
                 <td>
-                    <a href="editInventory.php?id=<?= $item['id_barang'] ?>" class="btn btn-primary">
+                    <a href="editInventory.php?id=<?= $item['id'] ?>" class="btn btn-primary">
                         Edit
                     </a>
 
-                    <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal<?= $item['id_barang'] ?>">
+                    <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal<?= $item['id'] ?>">
                         Hapus
                     </a>
                     <?php include('../../components/modal.php'); ?>
