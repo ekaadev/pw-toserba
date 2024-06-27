@@ -164,7 +164,18 @@ class InventoryController
         try {
             $key = $_GET['key'];
 
-            $sql = "SELECT id_barang, id_kategori, nama, stok, harga_beli, harga_jual FROM barang WHERE nama LIKE '%$key%'";
+            $sql = "
+            SELECT 
+                id_barang as id, 
+                id_kategori, 
+                nama, 
+                stok, 
+                harga_beli, 
+                harga_jual 
+            FROM 
+                barang 
+            WHERE 
+                nama LIKE '%$key%'";
     
             $stmt = $this->conn->prepare($sql);
     

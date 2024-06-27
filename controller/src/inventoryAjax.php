@@ -21,7 +21,7 @@ $data = $inventory->keyword();
     <tbody>
         <?php foreach ($data[0] as $item) : ?>
             <tr>
-                <td><?= $item['id_barang'] ?></td>
+                <td><?= $item['id'] ?></td>
                 <td><?= $item['id_kategori'] ?></td>
                 <td><?= $item['nama'] ?></td>
                 <td><?= $item['stok'] ?></td>
