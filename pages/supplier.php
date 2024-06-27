@@ -80,7 +80,7 @@ if (isset($_POST['delete'])) {
                                             <td><?= $item['alamat'] ?></td>
                                             <td><?= $item['email'] ?></td>
                                             <td>
-                                                <a href="" class="btn btn-primary">
+                                                <a href="editSupplier.php?id=<?=$item['id'] ?>" class="btn btn-primary">
                                                     Edit
                                                 </a>
                                                 <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal<?= $item['id'] ?>">
