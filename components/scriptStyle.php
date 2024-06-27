@@ -3,7 +3,7 @@
 
 <!-- Libs CSS -->
 
-<link href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<!-- <link href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"> -->
 <link href="../node_modules/prismjs/themes/prism-okaidia.css" rel="stylesheet">
 <link href="../node_modules/dropzone/dist/dropzone.css"  rel="stylesheet">
 <!-- 
