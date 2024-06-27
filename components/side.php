@@ -17,7 +17,7 @@
 
             <!-- Nav item -->
             <li class="nav-item">
-                <div class="navbar-heading">Pages</div>
+                <div class="navbar-heading">Transaksi</div>
             </li>
 
             <!-- Nav item -->
