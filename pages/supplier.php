@@ -1,8 +1,30 @@
-<?php session_start(); 
+<?php 
+
+require_once __DIR__ . '/../controller/Connection.php';
+require_once __DIR__ . '/../controller/SupplierController.php';
+
+session_start(); 
+
+$suppliers = new SupplierController();
+$supplier = $suppliers->index();
 
 if (isset($_GET['refresh'])) {
     header('Location: supplier.php');
-  }
+}
+
+if (isset($_POST['delete'])) {
+    $success = $suppliers->delete();
+
+    if ($success) {
+        $_SESSION['success'] = 'Data berhasil dihapus';
+    } else {
+        $_SESSION['success'] = 'Gagal menghapus data';
+    }
+
+    header('Location: supplier.php');
+    exit();
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -23,11 +45,19 @@ if (isset($_GET['refresh'])) {
                 <div class="row min-vh-80 h-100 px-5 py-5">
                     <p class="fs-2 pb-3">Supplier</p>
 
+                    <?php if (isset($_SESSION['success'])) : ?>
+                        <div class="alert alert-success" role="alert">
+                        <?= $_SESSION['success']; ?>
+
+                        <?php unset($_SESSION['success']); ?>
+                        </div>
+                    <?php endif; ?>
+
 
                     <div class="row rounded-2 bg-white shadow-sm border fs-5 px-5">
                         <form action="supplier.php" method="get">
                             <div class="py-5 fs-5 d-flex flex-row gap-2">
-                                <input type="text" name="key" id="key" class="form-control form-control-transparent" placeholder="Search">
+                                <input type="text" name="key" id="key" class="form-control form-control-transparent" placeholder="Search" autocomplete="off">
                                 <a href="" class="btn btn-secondary" name="add">Add</a>
                                 <button type="submit" class="btn btn-success" name="refresh">Refresh</button>
                             </div>
@@ -44,12 +74,23 @@ if (isset($_GET['refresh'])) {
                                     <th>Action</th>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>a</td>
-                                        <td>a</td>
-                                        <td>a</td>
-                                        <td>a</td>
-                                    </tr>                                
+                                    <?php foreach ($supplier as $item) : ?>
+                                        <tr>
+                                            <td><?= $item['nama'] ?></td>
+                                            <td><?= $item['alamat'] ?></td>
+                                            <td><?= $item['email'] ?></td>
+                                            <td>
+                                                <a href="" class="btn btn-primary">
+                                                    Edit
+                                                </a>
+                                                <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal<?= $item['id'] ?>">
+                                                    Hapus
+                                                </a>
+                                                <?php include('../components/modal.php') ?>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                                                 
                                 </tbody>
                             </table>
                         </div>
@@ -62,7 +103,7 @@ if (isset($_GET['refresh'])) {
         </div>
     </div>
 
-<?php include('../components/scripts.php') ?>
-<script src="../assets/js/scriptSupplier.js"></script>
+    <script src="../assets/js/supplierScript.js"></script>
+    <?php include('../components/scripts.php') ?>
 </body>
 </html>
