@@ -62,7 +62,7 @@ if (isset($_POST['delete'])) {
                         <form action="customer.php" method="get">
                             <div class="py-5 fs-5 d-flex flex-row gap-2">
                                 <input type="text" name="key" id="key" class="form-control form-control-transparent" placeholder="Search" autocomplete="off">
-                                <a href="addSupplier.php" class="btn btn-secondary" name="add">Add</a>
+                                <a href="addCustomer.php" class="btn btn-secondary" name="add">Add</a>
                                 <button type="submit" class="btn btn-success" name="refresh">Refresh</button>
                             </div>
                         </form>

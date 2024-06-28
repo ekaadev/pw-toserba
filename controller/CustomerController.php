@@ -1,5 +1,6 @@
 <?php 
 require_once __DIR__ . '/Connection.php';
+require_once __DIR__ . '/../utils/Helper.php';
 
 class CustomerController 
 {
@@ -9,6 +10,42 @@ class CustomerController
     function __construct()
     {
         $this->conn = Connection::getConnection();
+    }
+
+    public function add($request) 
+    {
+
+        try {
+            $id = Helper::generateId();
+            $nama = $request['nama'];
+            $alamat = $request['alamat'];
+            $email = $request['email'];
+            
+
+            $sql = "INSERT INTO pelanggan (id_pelanggan, nama, alamat, email)
+                    VALUES (:id, :nama, :alamat, :email)";
+
+            $stmt = $this->conn->prepare($sql);
+
+            // bind nilai 
+            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':nama', $nama);
+            $stmt->bindParam(':alamat', $alamat);
+            $stmt->bindParam(':email', $email);
+
+            $stmt->execute();
+
+            if ($stmt->rowCount() > 0) {
+                $_SESSION['success'] = 'Data berhasil disimpan';
+            } else {
+                return false;
+            }
+
+
+        } catch (PDOException $e) {
+            echo "Error : " . $e->getMessage();
+        }
+        
     }
 
     public function index()
