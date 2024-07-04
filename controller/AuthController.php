@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once __DIR__ . '/../controller/Connection.php';
 
 class AuthController
@@ -41,7 +41,7 @@ class AuthController
     $passwordUser = $_POST['passwordUser'];
 
     // PREPARE QUERY
-    $stmt = $this->conn->prepare("SELECT username, pass, roleas FROM karyawan WHERE username = ?");
+    $stmt = $this->conn->prepare("SELECT id_karyawan as id, username, pass, roleas FROM karyawan WHERE username = ?");
 
     // BIND PARAM
     $stmt->bindParam(1, $usernameUser);
@@ -55,6 +55,7 @@ class AuthController
     // jika true / user ditemukan maka lanjutkan proses login
     if ($result) {
       if (password_verify($passwordUser, $result['pass'])) {
+        $_SESSION['id'] = $result['id'];
         $_SESSION['username'] = $usernameUser;
         $_SESSION['role'] = $result['roleas'];
         header('Location: index.php');
