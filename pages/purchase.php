@@ -1,7 +1,7 @@
 <?php 
 
 require_once __DIR__ . '/../controller/DetailPenjualan.php';
-require_once __DIR__ . '/../controller/PenjualanController.php';
+require_once __DIR__ . '/../controller/PurchaseController.php';
 
 session_start();
 
@@ -50,7 +50,7 @@ if (isset($_POST["checkout"])) {
   ];
 
   // add penjualana
-  $penjualan = new PenjualanController();
+  $penjualan = new PurchaseController();
   $penjualan->add($request);
   
   // header or refresh page
