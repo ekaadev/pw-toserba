@@ -47,8 +47,8 @@ if (isset($_POST["checkout"])) {
     ];
   
     // add pembelian
-    $buy = new BuyController();
-    $buy->add($request);
+    $buyController = new BuyController();
+    $buyController->add($request);
 
     // header or refresh page
     unset($_SESSION['buy']);
