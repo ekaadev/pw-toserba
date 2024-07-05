@@ -85,11 +85,12 @@ class ReturPenjualanController {
 
             $sql = "
                 SELECT
-                    id_penjualan as id, 
+                    id_retur_penjualan as id,
+                    id_penjualan,
                     id_pelanggan,
-                    id_karyawan
+                    deskripsi
                 FROM 
-                    penjualan
+                    retur_penjualan
             ";
 
             $stmt = $this->conn->prepare($sql);
@@ -113,13 +114,14 @@ class ReturPenjualanController {
             try {
                 $sql = "
                 SELECT
-                    id_penjualan as id, 
+                    id_retur_penjualan as id,
+                    id_penjualan,
                     id_pelanggan,
-                    id_karyawan
+                    deskripsi
                 FROM
-                    penjualan
+                    retur_penjualan
                 WHERE
-                    id_penjualan = '$id'
+                    id_retur_penjualan = '$id'
                 ";
 
                 $stmt = $this->conn->prepare($sql);
@@ -141,17 +143,16 @@ class ReturPenjualanController {
             try {
                 $sql = "
                 SELECT
-                    dpe.id_penjualan,
                     b.id_barang as id,
                     b.nama as nama,
                     dpe.harga_jual as harga,
                     dpe.jumlah as jumlah
                 FROM
-                    detail_penjualan dpe RIGHT JOIN barang b
+                    detail_retur_penjualan dpe RIGHT JOIN barang b
                 ON
                     dpe.id_barang = b.id_barang
                 WHERE
-                    dpe.id_penjualan = '$id'
+                    dpe.id_retur_penjualan = '$id';
                 ";
 
                 $stmt = $this->conn->prepare($sql);
@@ -171,7 +172,7 @@ class ReturPenjualanController {
         try {
             $id = $_POST['id'];
 
-            $sql = "DELETE FROM penjualan WHERE id_penjualan = :id";
+            $sql = "DELETE FROM retur_penjualan WHERE id_retur_penjualan = :id";
 
             $stmt = $this->conn->prepare($sql);
 
@@ -196,13 +197,14 @@ class ReturPenjualanController {
 
             $sql = "
             SELECT 
-                id_penjualan as id, 
+                id_retur_penjualan as id,
+                id_penjualan,
                 id_pelanggan,
-                id_karyawan
+                deskripsi
             FROM 
-                penjualan
+                retur_penjualan
             WHERE 
-                id_penjualan LIKE '%$key%'";
+                id_retur_penjualan LIKE '%$key%'";
     
             $stmt = $this->conn->prepare($sql);
     
