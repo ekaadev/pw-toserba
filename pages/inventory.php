@@ -89,7 +89,7 @@ if (isset($_POST['delete'])) {
                       <td><?= $item['nama'] ?></td>
                       <td><?= $item['stok'] ?></td>
                       <td>Rp <?=number_format(intval($item['harga_beli']), 2, ',', '.');  ?></td>
-                      <td><?= $item['harga_jual'] ?></td>
+                      <td>Rp <?=number_format(intval($item['harga_jual']), 2, ',', '.');  ?></td>
                       <td>
                         <a href="editInventory.php?id=<?= $item['id'] ?>" class="btn btn-primary">
                           Edit
