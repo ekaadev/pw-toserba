@@ -81,13 +81,14 @@ if (isset($_POST['delete'])) {
                   <th>Action</th>
                 </thead>
                 <tbody>
+                  <!-- mulai perulangan -->
                   <?php foreach ($inventories as $item) : ?>
                     <tr>
                       <td><?= $item['id'] ?></td>
                       <td><?= $item['id_kategori'] ?></td>
                       <td><?= $item['nama'] ?></td>
                       <td><?= $item['stok'] ?></td>
-                      <td><?= $item['harga_beli'] ?></td>
+                      <td>Rp <?=number_format(intval($item['harga_beli']), 2, ',', '.');  ?></td>
                       <td><?= $item['harga_jual'] ?></td>
                       <td>
                         <a href="editInventory.php?id=<?= $item['id'] ?>" class="btn btn-primary">

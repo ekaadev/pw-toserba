@@ -1,3 +1,14 @@
+<?php 
+
+
+if(isset($_GET['logout'])) {
+    session_destroy();
+    header('Location: login.php');
+  }
+  
+
+?>
+
 <!-- Sidebar -->
 <nav class="navbar-vertical navbar">
     <div class="nav-scroller">
@@ -30,14 +41,14 @@
             <!-- Nav item -->
             <li class="nav-item">
                 <a class="nav-link has-arrow @@if (context.page_group !== 'pages') { collapsed }" href="http://localhost/pw-toserba/pages/buy.php" >
-                    <i data-feather="shopping-cart" class="nav-icon icon-xs me-2"></i> Pembelian
+                    <i data-feather="box" class="nav-icon icon-xs me-2"></i> Pembelian
                 </a>
             </li>
 
             <!-- Nav item -->
             <li class="nav-item">
                 <a class="nav-link has-arrow @@if (context.page_group !== 'pages') { collapsed }" href="http://localhost/pw-toserba/pages/returPenjualan.php" >
-                    <i data-feather="shopping-cart" class="nav-icon icon-xs me-2"></i> Retur Penjualan
+                    <i data-feather="file-text" class="nav-icon icon-xs me-2"></i> Retur Penjualan
                 </a>
             </li>
 
@@ -68,20 +79,20 @@
 
             <li class="nav-item">
                 <a class="nav-link has-arrow @@if (context.page_group !== 'authentication') { collapsed }" href="http://localhost/pw-toserba/pages/viewPurchase.php" >
-                    <i data-feather="users" class="nav-icon icon-xs me-2"></i> Riwayat Penjualan
+                    <i data-feather="clipboard" class="nav-icon icon-xs me-2"></i> Riwayat Penjualan
                 </a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link has-arrow @@if (context.page_group !== 'authentication') { collapsed }" href="http://localhost/pw-toserba/pages/viewBuy.php" >
-                    <i data-feather="users" class="nav-icon icon-xs me-2"></i> Riwayat Pembelian
+                    <i data-feather="clipboard" class="nav-icon icon-xs me-2"></i> Riwayat Pembelian
                 </a>
             </li>
 
 
             <li class="nav-item">
                 <a class="nav-link has-arrow @@if (context.page_group !== 'authentication') { collapsed }" href="http://localhost/pw-toserba/pages/viewReturPenjualan.php" >
-                    <i data-feather="users" class="nav-icon icon-xs me-2"></i> Riwayat Retur Penjualan
+                    <i data-feather="clipboard" class="nav-icon icon-xs me-2"></i> Riwayat Retur Penjualan
                 </a>
             </li>
 
